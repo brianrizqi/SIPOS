@@ -14,16 +14,26 @@
             <ul class="menu">
 
                 <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-people"></i>
-                        <span>User</span>
+                    @if(Auth::user()->isA('admin'))
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-people"></i>
+                            <span>User</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="{{ route('dashboard.admin.users.index') }}">List User</a>
+                                <a href="{{ route('dashboard.admin.users.create') }}">Create User</a>
+                            </li>
+                        </ul>
+                    @endif
+                    <a href="#" class='sidebar-link'
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="bi bi-power"></i>
+                        <span>Logout</span>
                     </a>
-                    <ul class="submenu ">
-                        <li class="submenu-item ">
-                            <a href="{{ route('dashboard.admin.users.index') }}">List User</a>
-                            <a href="{{ route('dashboard.admin.users.create') }}">Create User</a>
-                        </li>
-                    </ul>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </li>
 
             </ul>
