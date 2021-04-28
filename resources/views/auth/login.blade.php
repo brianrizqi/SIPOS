@@ -18,8 +18,8 @@
     <div class="row h-100">
         <div class="col-lg-5 col-12">
             <div id="auth-left">
-                <h1 class="auth-title">Log in.</h1>
-                <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
+                <h1 class="auth-title">SIP</h1>
+                <p class="auth-subtitle mb-5">SIP adalah Sistem Inforamsi P</p>
                 @if(Session::has('failed'))
                     <div class="alert-danger">{{ Session::get('failed') }}</div>
                     <br>
