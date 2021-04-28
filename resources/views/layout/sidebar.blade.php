@@ -25,7 +25,19 @@
                                 <a href="{{ route('dashboard.admin.users.create') }}">Create User</a>
                             </li>
                         </ul>
+                    @elseif(Auth::user()->isA('kader'))
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-people"></i>
+                            <span>Ibu Hamil</span>
+                        </a>
+                        <ul class="submenu ">
+                            <li class="submenu-item ">
+                                <a href="{{ route('dashboard.kader.pregnant.index') }}">List Ibu Hamil</a>
+                                <a href="{{ route('dashboard.kader.pregnant.create') }}">Create Ibu Hamil</a>
+                            </li>
+                        </ul>
                     @endif
+                    <br>
                     <a href="#" class='sidebar-link'
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="bi bi-power"></i>

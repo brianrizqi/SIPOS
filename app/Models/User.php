@@ -59,4 +59,9 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    public function pregnant()
+    {
+        return $this->hasMany('App\Models\MotherPregnant');
+    }
 }

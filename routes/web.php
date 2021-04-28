@@ -21,3 +21,10 @@ Route::group(['middleware' => ['role:admin', 'auth'], 'namespace' => 'Admin', 'a
     Route::post('users', [\App\Http\Controllers\Admin\UserController::class, 'store'])->name('users.store');
     Route::get('users/create', [\App\Http\Controllers\Admin\UserController::class, 'create'])->name('users.create');
 });
+
+Route::group(['middleware' => ['role:kader', 'auth'], 'namespace' => 'Kader', 'as' => 'dashboard.kader.', 'prefix' => '/dashboard/kader'], function () {
+    Route::get('pregnant', [\App\Http\Controllers\Kader\PregnantController::class, 'index'])->name('pregnant.index');
+    Route::post('pregnant', [\App\Http\Controllers\Kader\PregnantController::class, 'store'])->name('pregnant.store');
+    Route::get('pregnant/create', [\App\Http\Controllers\Kader\PregnantController::class, 'create'])->name('pregnant.create');
+    Route::get('pregnant/{id}', [\App\Http\Controllers\Kader\PregnantController::class, 'show'])->name('pregnant.show');
+});

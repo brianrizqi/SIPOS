@@ -33,6 +33,8 @@ class LoginController extends Controller
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
             if (Auth::user()->isA('admin')) {
                 return redirect()->route('dashboard.admin.users.index');
+            } else if (Auth::user()->isA('kader')) {
+                return redirect()->route('dashboard.kader.pregnant.index');
             }
         } else {
             return redirect()
