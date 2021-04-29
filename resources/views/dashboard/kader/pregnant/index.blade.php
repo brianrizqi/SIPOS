@@ -33,6 +33,8 @@
                                             <td>
                                                 <a href="{{ route('dashboard.kader.pregnant.show',['id' => $mother->id]) }}"
                                                    class="btn btn-primary">Detail</a>
+                                                <a href="{{ route('dashboard.kader.pregnant.edit',['id' => $mother->id]) }}"
+                                                   class="btn btn-primary">Edit</a>
                                             </td>
                                         </tr>
                                     @endforeach

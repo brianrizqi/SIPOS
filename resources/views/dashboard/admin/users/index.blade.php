@@ -23,6 +23,7 @@
                                         <th>ALAMAT</th>
                                         <th>TELEPON</th>
                                         <th>ROLE</th>
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -33,6 +34,10 @@
                                             <td class="text-bold-500">{{ $user->address }}</td>
                                             <td class="text-bold-500">{{ $user->phone }}</td>
                                             <td class="text-bold-500">{{ $user->role->title }}</td>
+                                            <td>
+                                                <a href="{{ route('dashboard.admin.users.edit',['id' => $user->id]) }}"
+                                                   class="btn btn-primary">Edit</a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
