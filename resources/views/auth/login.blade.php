@@ -19,7 +19,7 @@
         <div class="col-lg-5 col-12">
             <div id="auth-left">
                 <h1 class="auth-title">SIP</h1>
-                <p class="auth-subtitle mb-5">SIP adalah Sistem Inforamsi P</p>
+                <p class="auth-subtitle mb-5">SIP adalah Sistem Inforamsi Posyandu</p>
                 @if(Session::has('failed'))
                     <div class="alert-danger">{{ Session::get('failed') }}</div>
                     <br>
@@ -45,7 +45,7 @@
         </div>
         <div class="col-lg-7 d-none d-lg-block">
             <div id="auth-right">
-
+                <img src="https://akcdn.detik.net.id/community/media/visual/2020/08/28/pertamina-1.jpeg?w=700&q=90" width="100%" height="100%"/>
             </div>
         </div>
     </div>
