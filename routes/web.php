@@ -34,4 +34,10 @@ Route::group(['middleware' => ['role:kader', 'auth'], 'namespace' => 'Kader', 'a
 
     Route::get('pregnant/detail/create/{id}', [\App\Http\Controllers\Kader\DetailPregnantController::class, 'create'])->name('pregnant.detail.create');
     Route::post('pregnant/detail/{id}', [\App\Http\Controllers\Kader\DetailPregnantController::class, 'store'])->name('pregnant.detail.store');
+
+    Route::get('pregnant/risk/{id}', [\App\Http\Controllers\Kader\RiskPregnantController::class, 'index'])->name('pregnant.risk.index');
+    Route::post('pregnant/risk/{id}', [\App\Http\Controllers\Kader\RiskPregnantController::class, 'store'])->name('pregnant.risk.store');
+    Route::get('pregnant/risk/create/{id}', [\App\Http\Controllers\Kader\RiskPregnantController::class, 'create'])->name('pregnant.risk.create');
+    Route::get('pregnant/risk/edit/{id}', [\App\Http\Controllers\Kader\RiskPregnantController::class, 'edit'])->name('pregnant.risk.edit');
+    Route::put('pregnant/risk/{id}/edit', [\App\Http\Controllers\Kader\RiskPregnantController::class, 'update'])->name('pregnant.risk.update');
 });

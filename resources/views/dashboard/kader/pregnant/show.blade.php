@@ -50,7 +50,8 @@
                                             <td>{{ $gestational_age }} Hari</td>
                                             <td>{{ date("d M Y", $hpl) }}</td>
                                             <td>
-                                                <a href="#" class="btn btn-primary">Detail</a>
+                                                <a href="{{ route('dashboard.kader.pregnant.risk.index',['id' => $detail->id]) }}"
+                                                   class="btn btn-primary">Detail</a>
                                                 <a href="#" class="btn btn-primary">Edit</a>
                                             </td>
                                         </tr>

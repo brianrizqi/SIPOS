@@ -36,4 +36,9 @@ class DetailPregnant extends Model
     {
         return $this->belongsTo('App\Models\MotherPregnant', 'mother_id');
     }
+
+    public function risks()
+    {
+        return $this->hasMany('App\Models\RiskPregnant', 'detail_id');
+    }
 }
