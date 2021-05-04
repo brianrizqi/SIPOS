@@ -15,6 +15,7 @@ Auth::routes();
 */
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index']);
 
 Route::group(['middleware' => ['role:admin', 'auth'], 'namespace' => 'Admin', 'as' => 'dashboard.admin.', 'prefix' => '/dashboard/admin'], function () {
     Route::get('users', [\App\Http\Controllers\Admin\UserController::class, 'index'])->name('users.index');
@@ -42,4 +43,8 @@ Route::group(['middleware' => ['role:kader', 'auth'], 'namespace' => 'Kader', 'a
     Route::get('pregnant/risk/create/{id}', [\App\Http\Controllers\Kader\RiskPregnantController::class, 'create'])->name('pregnant.risk.create');
     Route::get('pregnant/risk/edit/{id}', [\App\Http\Controllers\Kader\RiskPregnantController::class, 'edit'])->name('pregnant.risk.edit');
     Route::put('pregnant/risk/{id}/edit', [\App\Http\Controllers\Kader\RiskPregnantController::class, 'update'])->name('pregnant.risk.update');
+});
+
+Route::group(['middleware' => ['role:bidan', 'auth'], 'namespace' => 'Bidan', 'as' => 'dashboard.bidan.', 'prefix' => '/dashboard/bidan'], function () {
+    Route::get('pregnant/service', [\App\Http\Controllers\Bidan\ServicePregnantController::class, 'index'])->name('pregnant.service.index');
 });

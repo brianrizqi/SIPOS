@@ -12,42 +12,56 @@
         </div>
         <div class="sidebar-menu">
             <ul class="menu">
-
-                <li class="sidebar-item  has-sub">
-                    @if(Auth::user()->isA('admin'))
+                @if(Auth::user()->isA('admin'))
+                    <li class="sidebar-item ">
+                        <a href="{{ route('dashboard.admin.users.index') }}" class='sidebar-link'>
+                            <i class="bi bi-people"></i>
+                            <span>List User</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item ">
+                        <a href="{{ route('dashboard.admin.users.create') }}" class='sidebar-link'>
+                            <i class="bi bi-people"></i>
+                            <span>Create User</span>
+                        </a>
+                    </li>
+                @elseif(Auth::user()->isA('kader'))
+                    <li class="sidebar-item ">
+                        <a href="{{ route('dashboard.kader.pregnant.index') }}" class='sidebar-link'>
+                            <i class="bi bi-people"></i>
+                            <span>List Ibu Hamil</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item ">
+                        <a href="{{ route('dashboard.kader.pregnant.create') }}" class='sidebar-link'>
+                            <i class="bi bi-people"></i>
+                            <span>Create Ibu Hamil</span>
+                        </a>
+                    </li>
+                @elseif(Auth::user()->isA('bidan'))
+                    <li class="sidebar-item ">
+                        <a href="{{ route('dashboard.bidan.pregnant.service.index') }}" class='sidebar-link'>
+                            <i class="bi bi-people"></i>
+                            <span>Layanan Hari Ini</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item ">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-people"></i>
-                            <span>User</span>
+                            <span>Riwayat Layanan</span>
                         </a>
-                        <ul class="submenu ">
-                            <li class="submenu-item ">
-                                <a href="{{ route('dashboard.admin.users.index') }}">List User</a>
-                                <a href="{{ route('dashboard.admin.users.create') }}">Create User</a>
-                            </li>
-                        </ul>
-                    @elseif(Auth::user()->isA('kader'))
-                        <a href="#" class='sidebar-link'>
-                            <i class="bi bi-people"></i>
-                            <span>Ibu Hamil</span>
-                        </a>
-                        <ul class="submenu ">
-                            <li class="submenu-item ">
-                                <a href="{{ route('dashboard.kader.pregnant.index') }}">List Ibu Hamil</a>
-                                <a href="{{ route('dashboard.kader.pregnant.create') }}">Create Ibu Hamil</a>
-                            </li>
-                        </ul>
-                    @endif
-                    <br>
+                    </li>
+                @endif
+                <li class="sidebar-item ">
                     <a href="#" class='sidebar-link'
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="bi bi-power"></i>
                         <span>Logout</span>
                     </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
                 </li>
-
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
