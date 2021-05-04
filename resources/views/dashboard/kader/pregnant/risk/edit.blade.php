@@ -20,8 +20,9 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="first-name-column">Trimester</label>
-                                                <input type="text" id="first-name-column" class="form-control"
+                                                <input type="number" id="first-name-column" class="form-control"
                                                        placeholder="Trimester" name="trimester"
+                                                       min="1" max="3"
                                                        value="{{ $risk->trimester }}" required>
                                             </div>
                                         </div>

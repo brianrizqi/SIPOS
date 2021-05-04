@@ -21,13 +21,13 @@
                 <h1 class="auth-title">SIP</h1>
                 <p class="auth-subtitle mb-5">SIP adalah Sistem Inforamsi Posyandu</p>
                 @if(Session::has('failed'))
-                    <div class="alert-danger">{{ Session::get('failed') }}</div>
-                    <br>
+                    <div class="alert alert-danger">{{ Session::get('failed') }}</div>
                 @endif
                 <form action="{{ route('login') }}" method="POST">
                     @csrf
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input type="text" name="email" class="form-control form-control-xl" placeholder="Email">
+                        <input type="text" name="email" class="form-control form-control-xl" placeholder="Email"
+                               value="{{ old('email') }}">
                         <div class="form-control-icon">
                             <i class="bi bi-person"></i>
                         </div>
@@ -45,7 +45,8 @@
         </div>
         <div class="col-lg-7 d-none d-lg-block">
             <div id="auth-right">
-                <img src="https://akcdn.detik.net.id/community/media/visual/2020/08/28/pertamina-1.jpeg?w=700&q=90" width="100%" height="100%"/>
+                <img src="https://akcdn.detik.net.id/community/media/visual/2020/08/28/pertamina-1.jpeg?w=700&q=90"
+                     width="100%" height="100%"/>
             </div>
         </div>
     </div>

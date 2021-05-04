@@ -59,6 +59,7 @@ class RiskPregnantController extends Controller
     {
         $risk = RiskPregnant::find($id);
         $detail = $risk->detail;
+        $risk->answer = $risk->answer ?? [];
         return view('dashboard/kader/pregnant/risk/edit', compact('risk', 'detail'));
     }
 
