@@ -32,11 +32,42 @@ class DetailPregnantController extends Controller
                 'mother_id' => $id,
                 'pregnancy_to' => $request->pregnancy_to,
                 'hpht' => $hpht,
-                'status' => $request->status
+                'status' => $request->status,
+                'bb' => $request->bb,
+                'tb' => $request->tb
             ]);
 
             DB::commit();
             return redirect()->route('dashboard.kader.pregnant.show', ['id' => $id]);
+        } catch (Exception $e) {
+            DB::rollBack();
+            dd($e);
+        }
+    }
+
+    public function edit($id)
+    {
+        $detail = DetailPregnant::findOrFail($id);
+        $mother = $detail->pregnant;
+        return view('dashboard/kader/pregnant/detail/edit', compact('id', 'mother', 'detail'));
+    }
+
+    public function update($id, Request $request)
+    {
+        $hpht = Carbon::parse($request->hpht);
+        try {
+            DB::beginTransaction();
+            $detail = DetailPregnant::find($id);
+            $detail->update([
+                'pregnancy_to' => $request->pregnancy_to,
+                'hpht' => $hpht,
+                'status' => $request->status,
+                'bb' => $request->bb,
+                'tb' => $request->tb
+            ]);
+
+            DB::commit();
+            return redirect()->route('dashboard.kader.pregnant.show', ['id' => $detail->mother_id]);
         } catch (Exception $e) {
             DB::rollBack();
             dd($e);

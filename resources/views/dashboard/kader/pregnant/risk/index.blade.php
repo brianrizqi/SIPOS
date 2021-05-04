@@ -15,7 +15,7 @@
                             <div class="col-md-2 float-right">
                                 <a href="{{ route('dashboard.kader.pregnant.risk.create',['id' => $detail->id]) }}"
                                    class="btn btn-primary"
-                                   style="margin-left: 1em">Tambah Data</a>
+                                   style="margin-left: 0.5em">Tambah Data</a>
                             </div>
                         </div>
                     </div>

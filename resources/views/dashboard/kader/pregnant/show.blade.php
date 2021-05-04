@@ -30,6 +30,8 @@
                                         <th>HPHT</th>
                                         <th>Usia Kehamilan</th>
                                         <th>HPL</th>
+                                        <th>TB</th>
+                                        <th>BB</th>
                                         <th>ACTION</th>
                                     </tr>
                                     </thead>
@@ -49,10 +51,13 @@
                                             <td>{{ $detail->hpht->format('d M Y') }}</td>
                                             <td>{{ $gestational_age }} Hari</td>
                                             <td>{{ date("d M Y", $hpl) }}</td>
+                                            <td>{{ $detail->tb }}</td>
+                                            <td>{{ $detail->bb }}</td>
                                             <td>
                                                 <a href="{{ route('dashboard.kader.pregnant.risk.index',['id' => $detail->id]) }}"
                                                    class="btn btn-primary">Detail</a>
-                                                <a href="#" class="btn btn-primary">Edit</a>
+                                                <a href="{{ route('dashboard.kader.pregnant.detail.edit',['id' => $detail->id]) }}"
+                                                   class="btn btn-primary">Edit</a>
                                             </td>
                                         </tr>
                                     @endforeach

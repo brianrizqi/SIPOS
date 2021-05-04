@@ -33,6 +33,7 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Masalah / Faktor Resiko</th>
+                                                <th>Skor</th>
                                                 <th>Kelompok Faktor Resiko</th>
                                                 <th>Jawaban</th>
                                             </tr>
@@ -41,6 +42,7 @@
                                             <tr>
                                                 <td>1</td>
                                                 <td>Terlalu muda hamil <16 tahun</td>
+                                                <td>4</td>
                                                 <td>I</td>
                                                 <td>
                                                     <div class="form-check">
@@ -55,6 +57,7 @@
                                             <tr>
                                                 <td>2a</td>
                                                 <td>Terlalu lambat hamil 1, kawin >4 tahun</td>
+                                                <td>4</td>
                                                 <td>I</td>
                                                 <td>
                                                     <div class="form-check">
@@ -69,6 +72,7 @@
                                             <tr>
                                                 <td>2b</td>
                                                 <td>Terlalu tua, hamil 1 >35 tahun</td>
+                                                <td>4</td>
                                                 <td>I</td>
                                                 <td>
                                                     <div class="form-check">
@@ -83,6 +87,7 @@
                                             <tr>
                                                 <td>3</td>
                                                 <td>Terlalu cepat hamil lagi (<2 tahun)</td>
+                                                <td>4</td>
                                                 <td>I</td>
                                                 <td>
                                                     <div class="form-check">
@@ -97,6 +102,7 @@
                                             <tr>
                                                 <td>4</td>
                                                 <td>Terlalu lama hamil lagi (>10 tahun)</td>
+                                                <td>4</td>
                                                 <td>I</td>
                                                 <td>
                                                     <div class="form-check">
@@ -111,6 +117,7 @@
                                             <tr>
                                                 <td>5</td>
                                                 <td>Terlalu banyak anak, 4/lebih</td>
+                                                <td>4</td>
                                                 <td>I</td>
                                                 <td>
                                                     <div class="form-check">
@@ -125,6 +132,7 @@
                                             <tr>
                                                 <td>6</td>
                                                 <td>Terlalu tua, umur >35 tahun</td>
+                                                <td>4</td>
                                                 <td>I</td>
                                                 <td>
                                                     <div class="form-check">
@@ -139,6 +147,7 @@
                                             <tr>
                                                 <td>7</td>
                                                 <td>Terlalu pendek <145 cm</td>
+                                                <td>4</td>
                                                 <td>I</td>
                                                 <td>
                                                     <div class="form-check">
@@ -153,6 +162,7 @@
                                             <tr>
                                                 <td>8</td>
                                                 <td>Pernah gagal kehamilan</td>
+                                                <td>4</td>
                                                 <td>I</td>
                                                 <td>
                                                     <div class="form-check">
@@ -171,6 +181,7 @@
                                             <tr>
                                                 <td>9a</td>
                                                 <td>Tarikan tang / vakum</td>
+                                                <td>4</td>
                                                 <td>I</td>
                                                 <td>
                                                     <div class="form-check">
@@ -185,6 +196,7 @@
                                             <tr>
                                                 <td>9b</td>
                                                 <td>Uri dirogoh</td>
+                                                <td>4</td>
                                                 <td>I</td>
                                                 <td>
                                                     <div class="form-check">
@@ -199,6 +211,7 @@
                                             <tr>
                                                 <td>9c</td>
                                                 <td>Diberi infus / transfusi</td>
+                                                <td>4</td>
                                                 <td>I</td>
                                                 <td>
                                                     <div class="form-check">
@@ -213,6 +226,7 @@
                                             <tr>
                                                 <td>10</td>
                                                 <td>Pernah operasi sesar</td>
+                                                <td>8</td>
                                                 <td>I</td>
                                                 <td>
                                                     <div class="form-check">
@@ -231,6 +245,7 @@
                                             <tr>
                                                 <td>11a</td>
                                                 <td>Kurang darah</td>
+                                                <td>4</td>
                                                 <td>II</td>
                                                 <td>
                                                     <div class="form-check">
@@ -245,6 +260,7 @@
                                             <tr>
                                                 <td>11b</td>
                                                 <td>Malaria</td>
+                                                <td>4</td>
                                                 <td>II</td>
                                                 <td>
                                                     <div class="form-check">
@@ -259,6 +275,7 @@
                                             <tr>
                                                 <td>11c</td>
                                                 <td>TBC Paru</td>
+                                                <td>4</td>
                                                 <td>II</td>
                                                 <td>
                                                     <div class="form-check">
@@ -273,6 +290,7 @@
                                             <tr>
                                                 <td>11d</td>
                                                 <td>Payah jantung</td>
+                                                <td>4</td>
                                                 <td>II</td>
                                                 <td>
                                                     <div class="form-check">
@@ -287,6 +305,7 @@
                                             <tr>
                                                 <td>11e</td>
                                                 <td>Kencing manis (Diabetes)</td>
+                                                <td>4</td>
                                                 <td>II</td>
                                                 <td>
                                                     <div class="form-check">
@@ -301,6 +320,7 @@
                                             <tr>
                                                 <td>11f</td>
                                                 <td>Penyakit menular seksual</td>
+                                                <td>4</td>
                                                 <td>II</td>
                                                 <td>
                                                     <div class="form-check">
@@ -315,6 +335,7 @@
                                             <tr>
                                                 <td>12</td>
                                                 <td>Bengkak pada muka / tungkai dan tekanan darah tinggi</td>
+                                                <td>4</td>
                                                 <td>II</td>
                                                 <td>
                                                     <div class="form-check">
@@ -329,6 +350,7 @@
                                             <tr>
                                                 <td>13</td>
                                                 <td>Hamil kembar 2 atau lebih</td>
+                                                <td>4</td>
                                                 <td>II</td>
                                                 <td>
                                                     <div class="form-check">
@@ -343,6 +365,7 @@
                                             <tr>
                                                 <td>14</td>
                                                 <td>Hamil kembar air (hydraminon)</td>
+                                                <td>4</td>
                                                 <td>II</td>
                                                 <td>
                                                     <div class="form-check">
@@ -357,6 +380,7 @@
                                             <tr>
                                                 <td>15</td>
                                                 <td>Bayi mati dalam kandungan</td>
+                                                <td>4</td>
                                                 <td>II</td>
                                                 <td>
                                                     <div class="form-check">
@@ -371,6 +395,7 @@
                                             <tr>
                                                 <td>16</td>
                                                 <td>Kehamilan lebih bulan</td>
+                                                <td>4</td>
                                                 <td>II</td>
                                                 <td>
                                                     <div class="form-check">
@@ -385,6 +410,7 @@
                                             <tr>
                                                 <td>17</td>
                                                 <td>Letak sungsang</td>
+                                                <td>8</td>
                                                 <td>II</td>
                                                 <td>
                                                     <div class="form-check">
@@ -399,6 +425,7 @@
                                             <tr>
                                                 <td>18</td>
                                                 <td>Letak lintang</td>
+                                                <td>8</td>
                                                 <td>II</td>
                                                 <td>
                                                     <div class="form-check">
@@ -413,6 +440,7 @@
                                             <tr>
                                                 <td>19</td>
                                                 <td>Pendarahan dalam kehamilan ini</td>
+                                                <td>8</td>
                                                 <td>III</td>
                                                 <td>
                                                     <div class="form-check">
@@ -427,6 +455,7 @@
                                             <tr>
                                                 <td>20</td>
                                                 <td>Pre-eklampsia berat / kejang-kejang</td>
+                                                <td>8</td>
                                                 <td>III</td>
                                                 <td>
                                                     <div class="form-check">
