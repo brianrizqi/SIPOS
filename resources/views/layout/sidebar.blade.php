@@ -46,7 +46,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item ">
-                        <a href="#" class='sidebar-link'>
+                        <a href="{{ route('dashboard.bidan.pregnant.service.history') }}" class='sidebar-link'>
                             <i class="bi bi-people"></i>
                             <span>Riwayat Layanan</span>
                         </a>

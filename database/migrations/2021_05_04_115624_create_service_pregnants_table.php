@@ -19,7 +19,13 @@ class CreateServicePregnantsTable extends Migration
             $table->foreign('mother_id')->references('id')->on('mother_pregnants')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-
+            $table->integer('pregnancy_to')->default(1);
+            $table->double('lila');
+            $table->double('bb');
+            $table->string('gestational_age');
+            $table->integer('trimester');
+            $table->string('blood_booster_pills')->default(0);
+            $table->string('immunization');
             $table->timestamps();
         });
     }

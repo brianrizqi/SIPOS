@@ -47,4 +47,10 @@ Route::group(['middleware' => ['role:kader', 'auth'], 'namespace' => 'Kader', 'a
 
 Route::group(['middleware' => ['role:bidan', 'auth'], 'namespace' => 'Bidan', 'as' => 'dashboard.bidan.', 'prefix' => '/dashboard/bidan'], function () {
     Route::get('pregnant/service', [\App\Http\Controllers\Bidan\ServicePregnantController::class, 'index'])->name('pregnant.service.index');
+    Route::post('pregnant/service', [\App\Http\Controllers\Bidan\ServicePregnantController::class, 'store'])->name('pregnant.service.store');
+    Route::get('pregnant/service/history', [\App\Http\Controllers\Bidan\ServicePregnantController::class, 'history'])->name('pregnant.service.history');
+    Route::get('pregnant/service/history/{date}', [\App\Http\Controllers\Bidan\ServicePregnantController::class, 'detail'])->name('pregnant.service.history.detail');
+    Route::get('pregnant/service/create', [\App\Http\Controllers\Bidan\ServicePregnantController::class, 'create'])->name('pregnant.service.create');
+    Route::get('pregnant/service/edit/{id}', [\App\Http\Controllers\Bidan\ServicePregnantController::class, 'edit'])->name('pregnant.service.edit');
+    Route::put('pregnant/service/{id}/edit', [\App\Http\Controllers\Bidan\ServicePregnantController::class, 'update'])->name('pregnant.service.update');
 });

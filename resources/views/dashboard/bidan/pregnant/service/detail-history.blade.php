@@ -7,17 +7,8 @@
         <div class="row" id="basic-table">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header container-fluid">
-                        <div class="row">
-                            <div class="col-md-10">
-                                <h4 class="card-title">Table Layanan Ibu Hamil</h4>
-                            </div>
-                            <div class="col-md-2 float-right">
-                                <a href="{{ route('dashboard.bidan.pregnant.service.create') }}"
-                                   class="btn btn-primary"
-                                   style="margin-left: 0.5em">Tambah Data</a>
-                            </div>
-                        </div>
+                    <div class="card-header">
+                        <h4 class="card-title">Detail Riwayat Layanan {{ $date->format('d M Y') }}</h4>
                     </div>
                     <div class="card-content">
                         <div class="card-body">
