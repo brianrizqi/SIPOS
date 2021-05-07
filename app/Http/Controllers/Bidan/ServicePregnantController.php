@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Mockery\Exception;
+use Auth;
 
 class ServicePregnantController extends Controller
 {
@@ -35,6 +36,7 @@ class ServicePregnantController extends Controller
             DB::beginTransaction();
 
             ServicePregnant::create([
+                'user_id' => Auth::id(),
                 'mother_id' => $request->mother_id,
                 'pregnancy_to' => $request->pregnancy_to,
                 'lila' => $request->lila,

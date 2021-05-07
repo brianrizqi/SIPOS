@@ -30,7 +30,7 @@ class ServicePregnant extends Model
     /**
      * @var array
      */
-    protected $fillable = ['mother_id', 'pregnancy_to', 'lila', 'bb', 'gestational_age', 'trimester', 'blood_booster_pills', 'immunization', 'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'mother_id', 'pregnancy_to', 'lila', 'bb', 'gestational_age', 'trimester', 'blood_booster_pills', 'immunization', 'created_at', 'updated_at'];
     protected $dates = ['created_at'];
 
     /**
