@@ -19,7 +19,7 @@
         <div class="col-lg-5 col-12">
             <div id="auth-left">
                 <h1 class="auth-title">SIP</h1>
-                <p class="auth-subtitle mb-5">SIP adalah Sistem Inforamsi Posyandu</p>
+                <p class="auth-subtitle mb-5">SIP adalah Sistem Informasi Posyandu</p>
                 @if(Session::has('failed'))
                     <div class="alert alert-danger">{{ Session::get('failed') }}</div>
                 @endif
