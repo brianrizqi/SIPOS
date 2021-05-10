@@ -42,14 +42,14 @@
                                             @php
                                                 $now = \Carbon\Carbon::now()->addDay();
                                                 $hpht = $detail->hpht;
-                                                $gestational_age = $hpht->diffInDays($now);
+                                                $gestational_age = floor($hpht->diffInDays($now) / 7);
                                                 $year = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $hpht)->year;
                                                 $month = $hpht->month;
                                                 $day = $hpht->day;
                                                 $hpl = mktime(0, 0, 0, $month + 9, $day + 7, $year);
                                             @endphp
                                             <td>{{ $detail->hpht->format('d M Y') }}</td>
-                                            <td>{{ $gestational_age }} Hari</td>
+                                            <td>{{ $gestational_age }} Minggu</td>
                                             <td>{{ date("d M Y", $hpl) }}</td>
                                             <td>{{ $detail->tb }}</td>
                                             <td>{{ $detail->bb }}</td>
