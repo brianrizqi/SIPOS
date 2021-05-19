@@ -40,6 +40,12 @@
                     </li>
                 @elseif(Auth::user()->isA('bidan'))
                     <li class="sidebar-item ">
+                        <a href="{{ route('dashboard.bidan.pregnant.index') }}" class='sidebar-link'>
+                            <i class="bi bi-people"></i>
+                            <span>List Ibu Hamil</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item ">
                         <a href="{{ route('dashboard.bidan.pregnant.service.index') }}" class='sidebar-link'>
                             <i class="bi bi-people"></i>
                             <span>Layanan Hari Ini</span>

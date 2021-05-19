@@ -53,4 +53,9 @@ Route::group(['middleware' => ['role:bidan', 'auth'], 'namespace' => 'Bidan', 'a
     Route::get('pregnant/service/create', [\App\Http\Controllers\Bidan\ServicePregnantController::class, 'create'])->name('pregnant.service.create');
     Route::get('pregnant/service/edit/{id}', [\App\Http\Controllers\Bidan\ServicePregnantController::class, 'edit'])->name('pregnant.service.edit');
     Route::put('pregnant/service/{id}/edit', [\App\Http\Controllers\Bidan\ServicePregnantController::class, 'update'])->name('pregnant.service.update');
+
+    Route::get('pregnant', [\App\Http\Controllers\Bidan\PregnantController::class, 'index'])->name('pregnant.index');
+    Route::get('pregnant/{id}', [\App\Http\Controllers\Bidan\PregnantController::class, 'show'])->name('pregnant.show');
+
+    Route::get('pregnant/risk/{id}', [\App\Http\Controllers\Bidan\RiskPregnantController::class, 'index'])->name('pregnant.risk.index');
 });
