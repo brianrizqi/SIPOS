@@ -30,8 +30,8 @@
                                         <th>HPHT</th>
                                         <th>Usia Kehamilan</th>
                                         <th>HPL</th>
-                                        <th>TB</th>
-                                        <th>BB</th>
+                                        <th>TB (cm) </th>
+                                        <th>BB (kg) </th>
                                         <th>ACTION</th>
                                     </tr>
                                     </thead>
@@ -42,15 +42,20 @@
                                             @php
                                                 $now = \Carbon\Carbon::now()->addDay();
                                                 $hpht = $detail->hpht;
-                                                $gestational_age = floor($hpht->diffInDays($now) / 7);
                                                 $year = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $hpht)->year;
                                                 $month = $hpht->month;
                                                 $day = $hpht->day;
                                                 $hpl = mktime(0, 0, 0, $month + 9, $day + 7, $year);
+                                                $hpl = date("d M Y", $hpl);
+                                                $hpl = \Carbon\Carbon::create($hpl);
+                                                $gestational_age = floor($hpht->diffInDays($now) / 7);
+                                                if ($gestational_age > $hpht->diffInWeeks($hpl)){
+                                                    $gestational_age = 40;
+                                                }
                                             @endphp
                                             <td>{{ $detail->hpht->format('d M Y') }}</td>
                                             <td>{{ $gestational_age }} Minggu</td>
-                                            <td>{{ date("d M Y", $hpl) }}</td>
+                                            <td>{{ $hpl->format('d M Y') }}</td>
                                             <td>{{ $detail->tb }}</td>
                                             <td>{{ $detail->bb }}</td>
                                             <td>

@@ -29,8 +29,8 @@
                                         <th>Nama</th>
                                         <th>Tanggal Kunjungan</th>
                                         <th>Kehamilan</th>
-                                        <th>LILA</th>
-                                        <th>Berat Badan</th>
+                                        <th>LILA (cm) </th>
+                                        <th>BB (Kg)</th>
                                         <th>Umur Kehamilan</th>
                                         <th>Trimester</th>
                                         <th>Pil</th>

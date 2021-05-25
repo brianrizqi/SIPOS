@@ -20,12 +20,12 @@
                                         <div class="form-group">
                                             <label for="email-id-column">Ibu Hamil</label>
                                             <fieldset class="form-group">
-                                                @foreach($mothers as $mother)
-                                                    <select class="form-select" id="basicSelect" name="mother_id">
+                                                <select class="form-select" id="basicSelect" name="mother_id">
+                                                    @foreach($mothers as $mother)
                                                         <option
                                                             value="{{ $mother->id }}" {{ $mother->id == $service->mother_id ? 'selected' : '' }}>{{ $mother->name }}</option>
-                                                    </select>
-                                                @endforeach
+                                                    @endforeach
+                                                </select>
                                             </fieldset>
                                         </div>
                                     </div>
