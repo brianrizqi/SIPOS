@@ -26,7 +26,7 @@ class DetailPregnant extends Model
     /**
      * @var array
      */
-    protected $fillable = ['mother_id', 'pregnancy_to', 'status', 'hpht', 'tb', 'bb', 'created_at', 'updated_at'];
+    protected $fillable = ['mother_id', 'pregnancy_to', 'status', 'hpht', 'gestational_age','tb', 'bb', 'created_at', 'updated_at'];
     protected $dates = ['hpht'];
 
     /**

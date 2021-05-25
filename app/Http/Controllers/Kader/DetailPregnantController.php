@@ -34,7 +34,8 @@ class DetailPregnantController extends Controller
                 'hpht' => $hpht,
                 'status' => $request->status,
                 'bb' => $request->bb,
-                'tb' => $request->tb
+                'tb' => $request->tb,
+                'gestational_age' => $request->gestational_age
             ]);
 
             DB::commit();
@@ -63,7 +64,8 @@ class DetailPregnantController extends Controller
                 'hpht' => $hpht,
                 'status' => $request->status,
                 'bb' => $request->bb,
-                'tb' => $request->tb
+                'tb' => $request->tb,
+                'gestational_age' => $request->gestational_age
             ]);
 
             DB::commit();

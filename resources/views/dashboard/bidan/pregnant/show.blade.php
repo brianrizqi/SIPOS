@@ -43,13 +43,9 @@
                                                 $hpl = mktime(0, 0, 0, $month + 9, $day + 7, $year);
                                                 $hpl = date("d M Y", $hpl);
                                                 $hpl = \Carbon\Carbon::create($hpl);
-                                                $gestational_age = floor($hpht->diffInDays($now) / 7);
-                                                if ($gestational_age > $hpht->diffInWeeks($hpl)){
-                                                    $gestational_age = 40;
-                                                }
                                             @endphp
                                             <td>{{ $detail->hpht->format('d M Y') }}</td>
-                                            <td>{{ $gestational_age }} Minggu</td>
+                                            <td>{{ $detail->gestational_age }} Minggu</td>
                                             <td>{{ $hpl->format('d M Y') }}</td>
                                             <td>{{ $detail->tb }}</td>
                                             <td>{{ $detail->bb }}</td>
