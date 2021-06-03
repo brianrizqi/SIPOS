@@ -47,8 +47,7 @@
                                         <div class="form-group">
                                             <label for="first-name-column">Usia Kehamilan (Minggu)</label>
                                             <input type="text" id="first-name-column" class="form-control"
-                                                   placeholder="Usia Kehamilan (Minggu)" name="gestational_age" required
-                                                   value="{{ $detail->gestational_age }}">
+                                                   placeholder="Usia Kehamilan (Minggu)" name="gestational_age" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
