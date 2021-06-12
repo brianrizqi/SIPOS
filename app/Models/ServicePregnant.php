@@ -30,8 +30,8 @@ class ServicePregnant extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'mother_id', 'pregnancy_to', 'lila', 'bb', 'gestational_age', 'trimester', 'blood_booster_pills', 'immunization', 'created_at', 'updated_at'];
-    protected $dates = ['created_at'];
+    protected $fillable = ['user_id', 'mother_id', 'pregnancy_to', 'lila', 'bb', 'gestational_age', 'trimester', 'blood_booster_pills', 'immunization', 'visit_at','created_at', 'updated_at'];
+    protected $dates = ['created_at','visit_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

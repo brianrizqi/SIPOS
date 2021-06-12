@@ -59,3 +59,4 @@ Route::group(['middleware' => ['role:bidan', 'auth'], 'namespace' => 'Bidan', 'a
 
     Route::get('pregnant/risk/{id}', [\App\Http\Controllers\Bidan\RiskPregnantController::class, 'index'])->name('pregnant.risk.index');
 });
+Route::get('ajax/bidan/pregnant/service/history', [\App\Http\Controllers\AjaxController::class, 'getServices'])->name('ajax.bidan.service.history');

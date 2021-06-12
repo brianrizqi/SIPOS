@@ -33,7 +33,7 @@
                                     @foreach($services as $service)
                                         <tr>
                                             <td>{{ $service->mother->name }}</td>
-                                            <td>{{ $service->created_at->format('d M Y') }}</td>
+                                            <td>{{ $service->visit_at->format('d M Y') }}</td>
                                             <td>{{ $service->pregnancy_to }}</td>
                                             <td>{{ $service->lila }}</td>
                                             <td>{{ $service->bb }}</td>

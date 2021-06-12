@@ -86,6 +86,13 @@
                                             </fieldset>
                                         </div>
                                     </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="last-name-column">Tanggal Kunjungan</label>
+                                            <input type="date" id="last-name-column" class="form-control"
+                                                   placeholder="Tanggal Kunjungan" name="visit_at" required>
+                                        </div>
+                                    </div>
                                     <div class="col-12 d-flex justify-content-end">
                                         <button type="submit"
                                                 class="btn btn-primary me-1 mb-1">Submit

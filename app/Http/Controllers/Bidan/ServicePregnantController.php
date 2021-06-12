@@ -15,7 +15,7 @@ class ServicePregnantController extends Controller
 {
     public function index()
     {
-        $services = ServicePregnant::whereDate('created_at', Carbon::today())->get();
+        $services = ServicePregnant::whereDate('visit_at', Carbon::today())->get();
         return view('dashboard/bidan/pregnant/service/index', compact('services'));
     }
 
@@ -32,6 +32,7 @@ class ServicePregnantController extends Controller
 
     public function store(Request $request)
     {
+        $visit_at = Carbon::parse($request->visit_at);
         try {
             DB::beginTransaction();
 
@@ -44,7 +45,8 @@ class ServicePregnantController extends Controller
                 'gestational_age' => $request->gestational_age,
                 'trimester' => $request->trimester,
                 'blood_booster_pills' => $request->blood_booster_pills,
-                'immunization' => $request->immunization
+                'immunization' => $request->immunization,
+                'visit_at' => $visit_at
             ]);
 
             DB::commit();
@@ -65,6 +67,7 @@ class ServicePregnantController extends Controller
     public function update($id, Request $request)
     {
         $service = ServicePregnant::find($id);
+        $visit_at = Carbon::parse($request->visit_at);
         try {
             DB::beginTransaction();
 
@@ -76,7 +79,8 @@ class ServicePregnantController extends Controller
                 'gestational_age' => $request->gestational_age,
                 'trimester' => $request->trimester,
                 'blood_booster_pills' => $request->blood_booster_pills,
-                'immunization' => $request->immunization
+                'immunization' => $request->immunization,
+                'visit_at' => $visit_at
             ]);
 
             DB::commit();
@@ -89,15 +93,15 @@ class ServicePregnantController extends Controller
 
     public function history()
     {
-        $services = ServicePregnant::select('created_at')->groupBy('created_at')
-            ->orderByDesc('created_at')->get();
+        $services = ServicePregnant::select('visit_at')->groupBy('visit_at')
+            ->orderByDesc('visit_at')->get();
         return view('dashboard/bidan/pregnant/service/history', compact('services'));
     }
 
     public function detail($date)
     {
         $date = Carbon::createFromDate($date);
-        $services = ServicePregnant::whereDate('created_at', $date)->get();
+        $services = ServicePregnant::whereDate('visit_at', $date)->get();
         return view('dashboard/bidan/pregnant/service/detail-history', compact('services', 'date'));
     }
 }
