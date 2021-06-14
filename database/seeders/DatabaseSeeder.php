@@ -18,8 +18,9 @@ class DatabaseSeeder extends Seeder
         try {
             DB::beginTransaction();
 
-            $this->call(RoleSeeder::class);
-            $this->call(AdminSeeder::class);
+//            $this->call(RoleSeeder::class);
+//            $this->call(AdminSeeder::class);
+            $this->call(KsprSeed::class);
 
             DB::commit();
         } catch (Exception $e) {

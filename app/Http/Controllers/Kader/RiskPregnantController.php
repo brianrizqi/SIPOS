@@ -4,10 +4,13 @@ namespace App\Http\Controllers\Kader;
 
 use App\Http\Controllers\Controller;
 use App\Models\DetailPregnant;
+use App\Models\Kspr;
+use App\Models\RiskDetail;
 use App\Models\RiskPregnant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Mockery\Exception;
+use Auth;
 
 class RiskPregnantController extends Controller
 {
@@ -25,28 +28,48 @@ class RiskPregnantController extends Controller
     public function create($id)
     {
         $detail = DetailPregnant::find($id);
-        return view('dashboard/kader/pregnant/risk/create', compact('detail'));
+        $kspr = Kspr::all();
+        return view('dashboard/kader/pregnant/risk/create', compact('detail', 'kspr'));
     }
 
     public function store($id, Request $request)
     {
+        $check = RiskPregnant::where('detail_id', $id)
+            ->where('trimester', $request->trimester)
+            ->get();
+        if ($check) {
+            return redirect()->route('dashboard.kader.pregnant.risk.index', ['id' => $id])->with('failed', 'Trimester sudah pernah diinput');
+        }
         try {
             DB::beginTransaction();
-            $arr = $this->kspr($request->answer);
-            if ($arr['score'] > 2 && $arr['score'] < 12) {
+            $initial_score = 2;
+            $score = 0;
+            if ($request->has('answer')) {
+                $kspr = Kspr::whereIn('id', $request->answer)->get();
+                $score = $kspr->sum('score');
+            }
+            $score = $initial_score + $score;
+            if ($score > 2 && $score < 12) {
                 $status = 'KRT';
-            } else if ($arr['score'] >= 12) {
+            } else if ($score >= 12) {
                 $status = 'KRST';
             } else {
                 $status = 'KRR';
             }
-            RiskPregnant::create([
+            $risk = RiskPregnant::create([
+                'kader_id' => Auth::id(),
                 'detail_id' => $id,
                 'trimester' => $request->trimester,
-                'answer' => count($arr['answer']) == 0 ? null : $arr['answer'],
-                'score' => $arr['score'],
+                'score' => $score,
                 'status' => $status
             ]);
+
+            foreach ($request->answer as $answer) {
+                RiskDetail::create([
+                    'kspr_id' => $answer,
+                    'risk_id' => $risk->id
+                ]);
+            }
             DB::commit();
             return redirect()->route('dashboard.kader.pregnant.risk.index', ['id' => $id]);
         } catch (Exception $exception) {
@@ -59,8 +82,9 @@ class RiskPregnantController extends Controller
     {
         $risk = RiskPregnant::find($id);
         $detail = $risk->detail;
-        $risk->answer = $risk->answer ?? [];
-        return view('dashboard/kader/pregnant/risk/edit', compact('risk', 'detail'));
+        $risk->answer = $risk->risks->pluck('kspr_id') ?? [];
+        $kspr = Kspr::all();
+        return view('dashboard/kader/pregnant/risk/edit', compact('risk', 'detail', 'kspr'));
     }
 
     public function update($id, Request $request)
@@ -68,55 +92,38 @@ class RiskPregnantController extends Controller
         $risk = RiskPregnant::find($id);
         try {
             DB::beginTransaction();
-            $arr = $this->kspr($request->answer);
-            if ($arr['score'] > 2 && $arr['score'] < 12) {
+            $initial_score = 2;
+            $score = 0;
+            if ($request->has('answer')) {
+                $kspr = Kspr::whereIn('id', $request->answer)->get();
+                $score = $kspr->sum('score');
+            }
+            $score = $initial_score + $score;
+            if ($score > 2 && $score < 12) {
                 $status = 'KRT';
-            } else if ($arr['score'] >= 12) {
+            } else if ($score >= 12) {
                 $status = 'KRST';
             } else {
                 $status = 'KRR';
             }
             $risk->update([
                 'trimester' => $request->trimester,
-                'answer' => count($arr['answer']) == 0 ? null : $arr['answer'],
-                'score' => $arr['score'],
+                'score' => $score,
                 'status' => $status
             ]);
+            $risks = RiskDetail::where('risk_id', $risk->id)->delete();
+
+            foreach ($request->answer as $answer) {
+                RiskDetail::create([
+                    'kspr_id' => $answer,
+                    'risk_id' => $risk->id
+                ]);
+            }
             DB::commit();
             return redirect()->route('dashboard.kader.pregnant.risk.index', ['id' => $risk->detail_id]);
         } catch (Exception $exception) {
             DB::rollBack();
             dd($exception);
         }
-    }
-
-    private function kspr($items)
-    {
-        $list = array('an1', 'an2a', 'an2b', 'an3', 'an4', 'an5', 'an6', 'an7', 'an8',
-            'an9a', 'an9b', 'an9c', 'an10', 'an11a', 'an11b', 'an11c', 'an11d', 'an11e', 'an11f',
-            'an12', 'an13', 'an14', 'an15', 'an16', 'an17', 'an18', 'an19', 'an20');
-        $answer_score = array();
-        $answers = array();
-        $initial_score = 2;
-        if (!is_null($items)) {
-            foreach ($list as $i => $item) {
-                $temp = 0;
-                if (in_array($item, $items)) {
-                    if (in_array($item, ['an10', 'an17', 'an18', 'an19', 'an20'])) {
-                        $temp = 8;
-                    } else {
-                        $temp = 4;
-                    }
-                    $answers[$i] = $item;
-                }
-                $answer_score[$i] = $temp;
-            }
-        }
-        $total_score = array_sum($answer_score) + $initial_score;
-        $answers = array_values($answers);
-        return [
-            'score' => $total_score,
-            'answer' => $answers
-        ];
     }
 }

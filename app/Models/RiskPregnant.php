@@ -27,7 +27,7 @@ class RiskPregnant extends Model
     /**
      * @var array
      */
-    protected $fillable = ['detail_id', 'trimester', 'answer', 'score', 'status', 'created_at', 'updated_at'];
+    protected $fillable = ['detail_id', 'kader_id', 'trimester', 'score', 'status', 'created_at', 'updated_at'];
     protected $casts = [
         'answer' => 'array',
     ];
@@ -38,5 +38,14 @@ class RiskPregnant extends Model
     public function detail()
     {
         return $this->belongsTo('App\Models\DetailPregnant', 'detail_id');
+    }
+
+    public function kader()
+    {
+        return $this->belongsTo('App\Models\User', 'kader_id');
+    }
+
+    public function risks(){
+        return $this->hasMany('App\Models\RiskDetail','risk_id');
     }
 }

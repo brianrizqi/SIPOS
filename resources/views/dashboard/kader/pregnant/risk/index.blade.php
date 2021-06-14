@@ -21,11 +21,15 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <!-- Table with outer spacing -->
+                            @if(Session::has('failed'))
+                                <div class="alert alert-danger">{{ Session::get('failed') }}</div>
+                        @endif
+                        <!-- Table with outer spacing -->
                             <div class="table-responsive">
                                 <table class="table table-lg">
                                     <thead>
                                     <tr>
+                                        <th>KADER</th>
                                         <th>TRIMESTER</th>
                                         <th>SCORE</th>
                                         <th>STATUS</th>
@@ -35,13 +39,16 @@
                                     <tbody>
                                     @foreach($detail->risks as $risk)
                                         <tr>
+                                            <td>{{ $risk->kader->name }}</td>
                                             <td>{{ $risk->trimester }}</td>
                                             <td>{{ $risk->score }}</td>
                                             <td>{{ $risk->status }}</td>
-                                            <td>
-                                                <a href="{{ route('dashboard.kader.pregnant.risk.edit',['id' => $risk->id]) }}"
-                                                   class="btn btn-primary">Edit</a>
-                                            </td>
+                                            @if(Auth::id() == $risk->kader_id)
+                                                <td>
+                                                    <a href="{{ route('dashboard.kader.pregnant.risk.edit',['id' => $risk->id]) }}"
+                                                       class="btn btn-primary">Edit</a>
+                                                </td>
+                                            @endif
                                         </tr>
                                     @endforeach
                                     </tbody>

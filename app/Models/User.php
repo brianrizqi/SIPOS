@@ -64,4 +64,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\MotherPregnant');
     }
+
+    public function risks()
+    {
+        return $this->hasMany('App\Models\RiskPregnant', 'kader_id');
+    }
 }
