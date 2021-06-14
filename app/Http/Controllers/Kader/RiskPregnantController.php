@@ -7,6 +7,7 @@ use App\Models\DetailPregnant;
 use App\Models\Kspr;
 use App\Models\RiskDetail;
 use App\Models\RiskPregnant;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Mockery\Exception;
@@ -56,12 +57,14 @@ class RiskPregnantController extends Controller
             } else {
                 $status = 'KRR';
             }
+            $visit_at = Carbon::parse($request->visit_at);
             $risk = RiskPregnant::create([
                 'kader_id' => Auth::id(),
                 'detail_id' => $id,
                 'trimester' => $request->trimester,
                 'score' => $score,
-                'status' => $status
+                'status' => $status,
+                'visit_at' => $visit_at
             ]);
 
             foreach ($request->answer as $answer) {
@@ -106,10 +109,12 @@ class RiskPregnantController extends Controller
             } else {
                 $status = 'KRR';
             }
+            $visit_at = Carbon::parse($request->visit_at);
             $risk->update([
                 'trimester' => $request->trimester,
                 'score' => $score,
-                'status' => $status
+                'status' => $status,
+                'visit_at' => $visit_at
             ]);
             $risks = RiskDetail::where('risk_id', $risk->id)->delete();
 

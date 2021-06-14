@@ -27,8 +27,11 @@ class RiskPregnant extends Model
     /**
      * @var array
      */
-    protected $fillable = ['detail_id', 'kader_id', 'trimester', 'score', 'status', 'created_at', 'updated_at'];
-    public $dates = ['created_at'];
+    protected $fillable = ['detail_id', 'kader_id', 'trimester', 'score', 'visit_at', 'status', 'created_at', 'updated_at'];
+    protected $casts = [
+        'answer' => 'array',
+    ];
+    public $dates = ['created_at', 'visit_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

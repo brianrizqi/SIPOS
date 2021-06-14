@@ -18,6 +18,13 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
+                                                <label for="last-name-column">Tanggal Kunjungan</label>
+                                                <input type="date" id="last-name-column" class="form-control"
+                                                       placeholder="Tanggal Kunjungan" name="visit_at" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
                                                 <label for="first-name-column">Trimester</label>
                                                 <input type="text" id="first-name-column" class="form-control"
                                                        placeholder="Trimester" name="trimester" required>

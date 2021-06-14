@@ -26,6 +26,14 @@
                                                        value="{{ $risk->trimester }}" required>
                                             </div>
                                         </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="last-name-column">Tanggal Kunjungan</label>
+                                                <input type="date" id="last-name-column" class="form-control"
+                                                       placeholder="Tanggal Kunjungan" name="visit_at" required
+                                                       value="{{ $risk->visit_at->format('Y-m-d') }}">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table table-lg">
@@ -52,7 +60,8 @@
                                                                     <input type="checkbox" id="checkbox1"
                                                                            name="answer[]"
                                                                            class="form-check-input"
-                                                                           value="{{ $item->id }}" {{ in_array($item->id,$risk->answer) ? 'checked' : '' }}>
+                                                                           value="{{ $item->id }}" {{ in_array($item->id,$risk->answer) ? 'checked' : '' }}
+                                                                    >
                                                                 </div>
                                                             </div>
                                                         </td>

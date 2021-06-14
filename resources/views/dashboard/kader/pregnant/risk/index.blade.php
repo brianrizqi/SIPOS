@@ -44,7 +44,7 @@
                                             <td>{{ $risk->trimester }}</td>
                                             <td>{{ $risk->score }}</td>
                                             <td>{{ $risk->status }}</td>
-                                            <td>{{ $risk->created_at->format('d M Y') }}</td>
+                                            <td>{{ $risk->visit_at->format('d M Y') }}</td>
                                             @if(Auth::id() == $risk->kader_id)
                                                 <td>
                                                     <a href="{{ route('dashboard.kader.pregnant.risk.edit',['id' => $risk->id]) }}"
