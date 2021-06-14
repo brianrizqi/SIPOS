@@ -36,7 +36,7 @@ class RiskPregnantController extends Controller
     {
         $check = RiskPregnant::where('detail_id', $id)
             ->where('trimester', $request->trimester)
-            ->get();
+            ->first();
         if ($check) {
             return redirect()->route('dashboard.kader.pregnant.risk.index', ['id' => $id])->with('failed', 'Trimester sudah pernah diinput');
         }
