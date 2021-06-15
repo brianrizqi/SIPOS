@@ -32,7 +32,7 @@
                                     <tbody>
                                     @foreach($services as $service)
                                         <tr>
-                                            <td>{{ $service->mother->name }}</td>
+                                            <td>{{ $service->name }}</td>
                                             <td>{{ $service->visit_at->format('d M Y') }}</td>
                                             <td>{{ $service->pregnancy_to }}</td>
                                             <td>{{ $service->lila }}</td>

@@ -17,14 +17,9 @@
                                 <div class="row">
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="email-id-column">Ibu Hamil</label>
-                                            <fieldset class="form-group">
-                                                <select class="form-select" id="basicSelect" name="mother_id">
-                                                    @foreach($mothers as $mother)
-                                                        <option value="{{ $mother->id }}">{{ $mother->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </fieldset>
+                                            <label for="email-id-column">Nama Ibu Hamil</label>
+                                            <input type="text" id="first-name-column" class="form-control"
+                                                   placeholder="Nama Ibu Hamil" name="name" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">

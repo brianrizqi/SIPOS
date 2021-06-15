@@ -66,12 +66,13 @@ class RiskPregnantController extends Controller
                 'status' => $status,
                 'visit_at' => $visit_at
             ]);
-
-            foreach ($request->answer as $answer) {
-                RiskDetail::create([
-                    'kspr_id' => $answer,
-                    'risk_id' => $risk->id
-                ]);
+            if ($request->has('answer')) {
+                foreach ($request->answer as $answer) {
+                    RiskDetail::create([
+                        'kspr_id' => $answer,
+                        'risk_id' => $risk->id
+                    ]);
+                }
             }
             DB::commit();
             return redirect()->route('dashboard.kader.pregnant.risk.index', ['id' => $id]);
@@ -117,12 +118,13 @@ class RiskPregnantController extends Controller
                 'visit_at' => $visit_at
             ]);
             $risks = RiskDetail::where('risk_id', $risk->id)->delete();
-
-            foreach ($request->answer as $answer) {
-                RiskDetail::create([
-                    'kspr_id' => $answer,
-                    'risk_id' => $risk->id
-                ]);
+            if ($request->has('answer')) {
+                foreach ($request->answer as $answer) {
+                    RiskDetail::create([
+                        'kspr_id' => $answer,
+                        'risk_id' => $risk->id
+                    ]);
+                }
             }
             DB::commit();
             return redirect()->route('dashboard.kader.pregnant.risk.index', ['id' => $risk->detail_id]);

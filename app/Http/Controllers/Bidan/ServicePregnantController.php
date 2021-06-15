@@ -21,8 +21,7 @@ class ServicePregnantController extends Controller
 
     public function create()
     {
-        $mothers = MotherPregnant::all();
-        return view('dashboard/bidan/pregnant/service/create', compact('mothers'));
+        return view('dashboard/bidan/pregnant/service/create');
     }
 
     public function show($id)
@@ -38,7 +37,7 @@ class ServicePregnantController extends Controller
 
             ServicePregnant::create([
                 'user_id' => Auth::id(),
-                'mother_id' => $request->mother_id,
+                'name' => $request->name,
                 'pregnancy_to' => $request->pregnancy_to,
                 'lila' => $request->lila,
                 'bb' => $request->bb,
@@ -59,9 +58,8 @@ class ServicePregnantController extends Controller
 
     public function edit($id)
     {
-        $mothers = MotherPregnant::all();
         $service = ServicePregnant::find($id);
-        return view('dashboard/bidan/pregnant/service/edit', compact('mothers', 'service'));
+        return view('dashboard/bidan/pregnant/service/edit', compact( 'service'));
     }
 
     public function update($id, Request $request)
@@ -72,7 +70,7 @@ class ServicePregnantController extends Controller
             DB::beginTransaction();
 
             $service->update([
-                'mother_id' => $request->mother_id,
+                'name' => $request->name,
                 'pregnancy_to' => $request->pregnancy_to,
                 'lila' => $request->lila,
                 'bb' => $request->bb,
