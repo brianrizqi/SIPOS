@@ -44,6 +44,7 @@
                         </div>
                     </div>
                 </div>
+                {{ $mothers->links() }}
             </div>
         </div>
     </section>

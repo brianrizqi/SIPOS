@@ -14,7 +14,7 @@ class PregnantController extends Controller
 {
     public function index()
     {
-        $mothers = MotherPregnant::where('user_id', Auth::id())->get();
+        $mothers = MotherPregnant::paginate(5);
         return view('dashboard/kader/pregnant/index', compact('mothers'));
     }
 
@@ -50,18 +50,18 @@ class PregnantController extends Controller
     public function show($id)
     {
         $mother = MotherPregnant::findOrFail($id);
-        if ($mother->user_id != Auth::id()) {
-            return abort(403);
-        }
+//        if ($mother->user_id != Auth::id()) {
+//            return abort(403);
+//        }
         return view('dashboard/kader/pregnant/show', compact('mother'));
     }
 
     public function edit($id)
     {
         $mother = MotherPregnant::findOrFail($id);
-        if ($mother->user_id != Auth::id()) {
-            return abort(403);
-        }
+//        if ($mother->user_id != Auth::id()) {
+//            return abort(403);
+//        }
         return view('dashboard/kader/pregnant/edit', compact('mother'));
     }
 

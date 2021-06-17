@@ -16,9 +16,9 @@ class DetailPregnantController extends Controller
     public function create($id)
     {
         $mother = MotherPregnant::findOrFail($id);
-        if ($mother->user_id != Auth::id()) {
-            return abort(403);
-        }
+//        if ($mother->user_id != Auth::id()) {
+//            return abort(403);
+//        }
         return view('dashboard/kader/pregnant/detail/create', compact('id', 'mother'));
     }
 
