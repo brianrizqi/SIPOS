@@ -58,7 +58,7 @@
                                         <div class="form-group">
                                             <label for="company-column">Tanggal Lahir</label>
                                             <input type="date" id="company-column" class="form-control"
-                                                   name="birthday_at" placeholder="Umur" required value="{{ $mother->birthday_at->format('Y-m-d') }}">
+                                                   name="birthday_at" placeholder="Umur" required value="{{ !is_null($mother->birthday_at) ? $mother->birthday_at->format('Y-m-d') : ''}}">
                                         </div>
                                     </div>
                                     <div class="col-12 d-flex justify-content-end">
