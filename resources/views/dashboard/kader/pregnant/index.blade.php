@@ -29,7 +29,7 @@
                                         <tr>
                                             <td>{{ $mother->name }}</td>
                                             <td>{{ $mother->husband }}</td>
-                                            <td>{{ $mother->age }} Tahun</td>
+                                            <td>{{ !is_null($mother->birthday_at) ? $mother->birthday_at->diffInYears(\Carbon\Carbon::now()). ' Tahun' : '-'}}</td>
                                             <td>
                                                 <a href="{{ route('dashboard.kader.pregnant.show',['id' => $mother->id]) }}"
                                                    class="btn btn-primary">Detail</a>

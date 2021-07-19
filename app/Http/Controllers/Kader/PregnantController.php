@@ -35,7 +35,7 @@ class PregnantController extends Controller
                 'nik' => $request->nik,
                 'phone' => $request->phone,
                 'address' => $request->address,
-                'age' => $request->age
+                'birthday_at' => $request->birthday_at
             ]);
 
             DB::commit();
@@ -77,7 +77,7 @@ class PregnantController extends Controller
                 'nik' => $request->nik,
                 'phone' => $request->phone,
                 'address' => $request->address,
-                'age' => $request->age
+                'birthday_at' => $request->birthday_at
             ]);
 
             DB::commit();

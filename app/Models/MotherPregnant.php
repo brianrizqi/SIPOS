@@ -30,7 +30,8 @@ class MotherPregnant extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'nik', 'name', 'husband', 'age', 'address', 'phone', 'created_at', 'updated_at'];
+    protected $fillable = ['user_id', 'nik', 'name', 'husband', 'birthday_at', 'address', 'phone', 'created_at', 'updated_at'];
+    public $dates = ['birthday_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

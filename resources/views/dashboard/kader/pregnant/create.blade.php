@@ -51,9 +51,9 @@
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="company-column">Umur</label>
-                                            <input type="text" id="company-column" class="form-control"
-                                                   name="age" placeholder="Umur" required>
+                                            <label for="company-column">Tanggal Lahir</label>
+                                            <input type="date" id="company-column" class="form-control"
+                                                   name="birthday_at" placeholder="Umur" required>
                                         </div>
                                     </div>
                                     <div class="col-12 d-flex justify-content-end">
