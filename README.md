@@ -1,20 +1,21 @@
 # Sistem Informasi Posyandu
+
 # Cara Install
 
-## Clone project
+1. Clone project
 
-## Extract project
+2. Extract project
 
-## Setelah project di extract, lakukan ```composer install``` melalui cmd / terminal
+3. Setelah project di extract, lakukan ```composer install``` melalui cmd / terminal
 
-## copy file .env.example menjadi .env
+4. copy file .env.example menjadi .env
 
-## buka file .env lalu sesuaikan dengan database anda
+5. buka file .env lalu sesuaikan dengan database anda
 
-## Lakukan ```php artisan key:generate```
+6. Lakukan ```php artisan key:generate```
 
-## Lalu lakukan ```php artisan migrate --seed```
+7. Lalu lakukan ```php artisan migrate --seed```
 
-## Website siap dijalankan dengan melakukan ```php artisan serve``` pada terminal / cmd
+8. Website siap dijalankan dengan melakukan ```php artisan serve``` pada terminal / cmd
 
-## buka ```http://localhost:8000``` atau ```http://127.0.0.1:8000```
+9. buka ```http://localhost:8000``` atau ```http://127.0.0.1:8000```
