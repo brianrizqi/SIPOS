@@ -1,5 +1,8 @@
 # Sistem Informasi Posyandu
 
+Laravel 8.x
+mySQL
+
 # Cara Install
 
 1. Clone project
